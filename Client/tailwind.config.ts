@@ -24,7 +24,11 @@ export default {
 			extrabold: "800",
 			black: "900"
 		},
-		extend: {}
+		extend: {
+			colors: {
+				"coy-gradient": "linear-gradient(150deg, #fff 0%, #fff4f4 100%)"
+			}
+		}
 	},
 	plugins: []
 } satisfies Config;
