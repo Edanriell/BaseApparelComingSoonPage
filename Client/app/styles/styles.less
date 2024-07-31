@@ -15,7 +15,22 @@
 
 html {
 	font-size: 62.5%;
+	box-sizing: border-box;
 	scroll-behavior: smooth;
+}
+
+body {
+	min-width: 32rem;
+	width: 100%;
+	background: linear-gradient(150deg, #fff 0%, #fff4f4 100%);
+}
+
+main {
+	height: calc(100% - 9.188rem);
+
+	@media (width >= 1440px) {
+		height: calc(100% - 16.298rem);
+	}
 }
 
 .visually-hidden {

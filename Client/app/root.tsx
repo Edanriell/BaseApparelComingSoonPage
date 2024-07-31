@@ -12,7 +12,7 @@ export function Layout({ children }: { children: ReactNode }) {
 				<Meta />
 				<Links />
 			</head>
-			<body className="bg-coy-gradient">
+			<body>
 				{children}
 				<ScrollRestoration />
 				<Scripts />

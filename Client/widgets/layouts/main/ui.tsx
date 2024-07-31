@@ -10,7 +10,7 @@ export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
 	return (
 		<Fragment>
 			<Header />
-			<main className={"w-full min-h-[100vh]"}>{children}</main>
+			<main className={"w-full"}>{children}</main>
 		</Fragment>
 	);
 };
