@@ -77,12 +77,10 @@ dist
 
 # Gatsby files
 .cache
-public
 
 # Remix files
 build/
 .cache/
-public/build/
 
 # IDE or editor specific files
 .vscode/
