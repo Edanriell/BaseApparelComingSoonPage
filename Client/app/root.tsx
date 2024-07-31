@@ -1,6 +1,9 @@
+import "./styles/styles.less";
+
+import { ReactNode } from "react";
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export function Layout({ children }: { children: ReactNode }) {
 	return (
 		<html lang="en">
 			<head>
@@ -9,7 +12,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Meta />
 				<Links />
 			</head>
-			<body>
+			<body className="bg-coy-gradient">
 				{children}
 				<ScrollRestoration />
 				<Scripts />
