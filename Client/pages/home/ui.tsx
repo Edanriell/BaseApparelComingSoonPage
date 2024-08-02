@@ -1,7 +1,8 @@
 import { FC } from "react";
 
-import { Button } from "@shared/ui/button";
 import { MainLayout } from "@widgets/layouts/main";
+import { Button } from "@shared/ui/button";
+import { Input } from "@shared/ui/input";
 
 export const HomePage: FC = () => {
 	return (
@@ -48,15 +49,11 @@ export const HomePage: FC = () => {
 					</p>
 					<form className="relative" method="POST">
 						<div className="relative desktop:max-w-[45.5rem]">
-							<label className="sr-only" htmlFor="customer-email">
-								Customer email address
-							</label>
-							<input
-								className="w-full max-h-[4.8rem] font-josefinSans font-normal text-[1.4rem] leading-[200%] text-masala-900 placeholder:text-oriental-pink-400-05 pt-[1.1rem] pb-[0.9rem] pl-[2.4rem] pr-[6.4rem] bg-transparent rounded-[2.8rem] border border-solid border-oriental-pink-400 desktop:max-h-[5.6rem] desktop:pl-[3.2rem] desktop:pt-[1.5rem] desktop:pb-[1.3rem] desktop:pr-[13.2rem] desktop:text-[1.6rem] desktop:leading-[175%]"
-								id="customer-email"
+							<Input
+								label="Customer email address"
+								placeholder="Email Address"
 								name="customer-email"
 								type="email"
-								placeholder="Email Address"
 							/>
 							<Button>
 								<img
