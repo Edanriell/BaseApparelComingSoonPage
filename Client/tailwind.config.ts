@@ -11,7 +11,8 @@ export default {
 		screens: {
 			tablet: "768px",
 			laptop: "1024px",
-			desktop: "1440px"
+			desktop: "1440px",
+			desktopXl: "2160px"
 		},
 		fontWeight: {
 			thin: "100",
@@ -55,6 +56,19 @@ export default {
 					"800": "#4f4544",
 					"900": "#423a3a",
 					"950": "#272121"
+				},
+				alabaster: {
+					"50": "#fafafa",
+					"100": "#efefef",
+					"200": "#dcdcdc",
+					"300": "#bdbdbd",
+					"400": "#989898",
+					"500": "#7c7c7c",
+					"600": "#656565",
+					"700": "#525252",
+					"800": "#464646",
+					"900": "#3d3d3d",
+					"950": "#292929"
 				}
 			},
 			boxShadow: {
@@ -62,6 +76,9 @@ export default {
 			},
 			backgroundImage: {
 				buttonGradient: "linear-gradient(135deg, #f8bfbf 0%, #ee8b8b 100%)"
+			},
+			gridTemplateColumns: {
+				customTwoCols: "1fr 42.36vw"
 			}
 		}
 	},
