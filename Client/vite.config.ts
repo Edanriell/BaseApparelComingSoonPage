@@ -19,7 +19,8 @@ export default defineConfig({
 			{ find: "@app", replacement: fileURLToPath(new URL("./app", import.meta.url)) },
 			{ find: "@pages", replacement: fileURLToPath(new URL("./pages", import.meta.url)) },
 			{ find: "@shared", replacement: fileURLToPath(new URL("./shared", import.meta.url)) },
-			{ find: "@widgets", replacement: fileURLToPath(new URL("./widgets", import.meta.url)) }
+			{ find: "@widgets", replacement: fileURLToPath(new URL("./widgets", import.meta.url)) },
+			{ find: "@features", replacement: fileURLToPath(new URL("./features", import.meta.url)) }
 		]
 	}
 });
