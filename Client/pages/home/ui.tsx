@@ -1,5 +1,6 @@
 import { FC } from "react";
 
+import { Button } from "@shared/ui/button";
 import { MainLayout } from "@widgets/layouts/main";
 
 export const HomePage: FC = () => {
@@ -57,17 +58,14 @@ export const HomePage: FC = () => {
 								type="email"
 								placeholder="Email Address"
 							/>
-							<button
-								className="px-[2.8rem] py-[1.6rem] max-h-[4.8rem] rounded-[2.8rem] shadow-buttonShadow bg-buttonGradient absolute top-0 right-0 desktop:max-h-[5.6rem] desktop:pl-[4.6rem] desktop:pr-[4.516rem] desktop:pt-[1.9rem] desktop:pb-[1.933rem]"
-								type="submit"
-							>
+							<Button>
 								<img
-									className="w-[0.884rem] h-[1.767rem]"
+									className="w-[1.2rem] h-[2rem]"
 									src="/images/vector/icons/arrow-right.svg"
 									alt=""
 								/>
 								<span className="sr-only">Send data</span>
-							</button>
+							</Button>
 						</div>
 					</form>
 					<svg
