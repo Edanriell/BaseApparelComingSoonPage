@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Form } from "@features/form";
+import { EmailForm } from "features/email-form";
 import { MainLayout } from "@widgets/layouts/main";
 
 export const HomePage: FC = () => {
@@ -46,7 +46,7 @@ export const HomePage: FC = () => {
 						Hello fellow shoppers! We&apos;re currently building our new fashion store. Add your
 						email below to stay up-to-date with announcements and our launch deals.
 					</p>
-					<Form />
+					<EmailForm />
 					<svg
 						className="hidden absolute bottom-0 right-0 -z-10 desktop:block"
 						width="417"

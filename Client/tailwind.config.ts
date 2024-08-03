@@ -5,7 +5,8 @@ export default {
 		"./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}",
 		"./pages/**/*.{js,ts,jsx,tsx}",
 		"./shared/**/*.{js,ts,jsx,tsx}",
-		"./widgets/**/*.{js,ts,jsx,tsx}"
+		"./widgets/**/*.{js,ts,jsx,tsx}",
+		"./features/**/*.{js,ts,jsx,tsx}"
 	],
 	theme: {
 		screens: {
@@ -69,6 +70,19 @@ export default {
 					"800": "#464646",
 					"900": "#3d3d3d",
 					"950": "#292929"
+				},
+				carnation: {
+					"50": "#fef2f2",
+					"100": "#fee2e2",
+					"200": "#ffc9c9",
+					"300": "#fda4a4",
+					"400": "#f96464",
+					"500": "#f14242",
+					"600": "#de2424",
+					"700": "#bb1a1a",
+					"800": "#9a1a1a",
+					"900": "#801c1c",
+					"950": "#460909"
 				}
 			},
 			boxShadow: {
