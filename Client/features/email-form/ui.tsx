@@ -4,20 +4,31 @@ import { Input } from "@shared/ui/input";
 import { Button } from "@shared/ui/button";
 import { validateEmail } from "@features/email-form/model";
 
+import { sendUserEmail } from "./api";
+
 export const EmailForm: FC = () => {
-	const [formSubmission, setFormSubmission] = useState<"idle" | "unSubmitted" | "submitted">(
-		"idle"
-	);
+	const [formSubmission, setFormSubmission] = useState<
+		"idle" | "unSubmitted" | "submitted" | "submitting"
+	>("idle");
 	const [userEmail, setUserEmail] = useState<string | null>(null);
 	const [userEmailValidness, setUserEmailValidness] = useState<"valid" | "invalid" | "unknown">(
 		"unknown"
 	);
 	const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-	const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
+	const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
 		if (userEmailValidness === "invalid") return;
+
+		try {
+			const response = await sendUserEmail(userEmail as string);
+			console.log(response);
+		} catch (error) {
+			console.error(error);
+		} finally {
+			console.log("finally");
+		}
 	};
 
 	const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
