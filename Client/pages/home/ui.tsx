@@ -1,8 +1,7 @@
 import { FC } from "react";
 
+import { EmailForm } from "features/email-form";
 import { MainLayout } from "@widgets/layouts/main";
-import { Button } from "@shared/ui/button";
-import { Input } from "@shared/ui/input";
 
 export const HomePage: FC = () => {
 	return (
@@ -47,24 +46,7 @@ export const HomePage: FC = () => {
 						Hello fellow shoppers! We&apos;re currently building our new fashion store. Add your
 						email below to stay up-to-date with announcements and our launch deals.
 					</p>
-					<form className="relative" method="POST">
-						<div className="relative desktop:max-w-[45.5rem]">
-							<Input
-								label="Customer email address"
-								placeholder="Email Address"
-								name="customer-email"
-								type="email"
-							/>
-							<Button>
-								<img
-									className="w-[1.2rem] h-[2rem]"
-									src="/images/vector/icons/arrow-right.svg"
-									alt=""
-								/>
-								<span className="sr-only">Send data</span>
-							</Button>
-						</div>
-					</form>
+					<EmailForm />
 					<svg
 						className="hidden absolute bottom-0 right-0 -z-10 desktop:block"
 						width="417"
