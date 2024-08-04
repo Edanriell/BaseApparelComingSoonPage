@@ -9,4 +9,4 @@ public sealed record CreateNewUserEmailRequestDto
 	[MinLength(5)]
 	[MaxLength(150)]
 	public string Email { get; init; } = string.Empty;
-}
+} 

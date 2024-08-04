@@ -6,7 +6,7 @@ namespace Server.Data;
 public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IConfiguration? configuration)
 	: DbContext(options)
 {
-	public DbSet<UserEmail> Users => Set<UserEmail>();
+	public DbSet<UserEmail> UserEmails => Set<UserEmail>();
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
