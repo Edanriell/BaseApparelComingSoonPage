@@ -2,7 +2,10 @@ import { postData } from "@shared/api";
 
 export const sendUserEmail = async (email: string) => {
 	try {
-		const response = await postData("/api/users/emails", { userEmail: email });
+		console.log(email);
+		const response = await postData("https://localhost:7155/api/user-emails/new", {
+			Email: email
+		});
 
 		if (!response.ok) {
 			const errorText = await response.text();

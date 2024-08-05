@@ -25,7 +25,17 @@ export const EmailForm: FC = () => {
 			const response = await sendUserEmail(userEmail as string);
 			console.log(response);
 		} catch (error) {
-			console.error(error);
+			if (error instanceof Error) {
+				console.log("Error message:", error.message);
+				const extractedMessage = error.message.match(/"([^"]+)"/)?.[1];
+				const displayMessage = extractedMessage || "An unexpected error occurred.";
+
+				console.log(extractedMessage);
+				setErrorMessage(displayMessage);
+			} else {
+				console.error("Unexpected error:", error);
+				setErrorMessage("An unexpected error occurred.");
+			}
 		} finally {
 			console.log("finally");
 		}
