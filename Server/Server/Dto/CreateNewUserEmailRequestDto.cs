@@ -4,5 +4,8 @@ namespace Server.Dto;
 
 public sealed record CreateNewUserEmailRequestDto
 {
-	[Required] [EmailAddress] public string Email { get; init; } = string.Empty;
+	[Required]
+	[EmailAddress]
+	[StringLength(120)]
+	public string Email { get; init; } = string.Empty;
 }
