@@ -19,7 +19,7 @@ public class AccessRequestsEndpoints
 		{
 			return await userEmailsRepository.GetAllUserEmails();
 		}
-
+ 
 		private async Task<IResult> CreateNewUserEmail([FromBody] CreateNewUserEmailRequestDto request,
 													   IUserEmailsRepository                   userEmailsRepository)
 		{

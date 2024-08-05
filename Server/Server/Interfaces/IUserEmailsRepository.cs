@@ -6,4 +6,4 @@ public interface IUserEmailsRepository
 {
 	Task<IResult> GetAllUserEmails();
 	Task<IResult> CreateNewUserEmail(CreateNewUserEmailRequestDto request);
-}
+} 

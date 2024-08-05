@@ -16,7 +16,7 @@ public class UserEmailsRepository(ApplicationDbContext context) : IUserEmailsRep
 		var recordCount = query.Count;
 
 		if (recordCount == 0)
-			return TypedResults.NotFound("No Access Requests have been found in DB.");
+			return TypedResults.NotFound("No User Emails has been found.");
 
 		return TypedResults.Ok(
 			new GetAllUserEmailsResponseDto
@@ -25,7 +25,7 @@ public class UserEmailsRepository(ApplicationDbContext context) : IUserEmailsRep
 				RecordCount = recordCount
 			});
 	}
-
+ 
 	public async Task<IResult> CreateNewUserEmail(CreateNewUserEmailRequestDto request)
 	{
 		var validationResults = new List<ValidationResult>();
@@ -48,7 +48,7 @@ public class UserEmailsRepository(ApplicationDbContext context) : IUserEmailsRep
 		var isEmailRegistered = await context.UserEmails.FirstOrDefaultAsync(email => email.Email == request.Email);
 
 		if (isEmailRegistered is not null)
-			return TypedResults.BadRequest($"Email: {request.Email} is already been registered.");
+			return TypedResults.BadRequest($"Email: {request.Email} is already registered.");
 
 		var entity = new UserEmail
 					 {

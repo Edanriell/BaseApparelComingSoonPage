@@ -22,4 +22,4 @@ public static class EndpointRouteBuilderExtensions
 			instantiatedType.MapEndpoints(app);
 		}
 	}
-}
+} 

@@ -17,7 +17,7 @@ public class AccessRequestConfiguration : IEntityTypeConfiguration<UserEmail>
 		builder.Property(a => a.Email)
 		   .HasColumnName(nameof(UserEmail.Email))
 		   .HasColumnType("varchar")
-		   .HasMaxLength(150)
+		   .HasMaxLength(120)
 		   .IsRequired();
 	}
 }
