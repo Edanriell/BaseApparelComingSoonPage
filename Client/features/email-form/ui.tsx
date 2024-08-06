@@ -25,7 +25,7 @@ export const EmailForm: FC = () => {
 
 		if (userEmailValidness === "invalid") return;
 
-		const formSubmissionResult = JSON.parse(localStorage.getItem("formSubmissionResult")!);
+		const formSubmissionResult = localStorage.getItem("formSubmissionResult");
 		if (formSubmissionResult) {
 			const parsedFormSubmissionResult = JSON.parse(formSubmissionResult);
 			if (parsedFormSubmissionResult.message === "submitted") {
@@ -44,10 +44,12 @@ export const EmailForm: FC = () => {
 			setSuccessMessage(response);
 			setFormSubmission("submitted");
 
-			localStorage.setItem(
-				"formSubmissionResult",
-				JSON.stringify({ message: "submitted", email: userEmail })
-			);
+			if (!localStorage.getItem("formSubmissionResult")) {
+				localStorage.setItem(
+					"formSubmissionResult",
+					JSON.stringify({ message: "submitted", email: userEmail })
+				);
+			}
 		} catch (error) {
 			if (error instanceof Error) {
 				console.error("Error message:", error.message);
@@ -88,6 +90,7 @@ export const EmailForm: FC = () => {
 					placeholder="Email Address"
 					name="customer-email"
 					type="email"
+					isInputInvalid={userEmailValidness === "invalid"}
 					onChange={handleEmailChange}
 				/>
 				<Button>
