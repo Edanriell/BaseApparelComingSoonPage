@@ -83,8 +83,12 @@ export const EmailForm: FC = () => {
 	};
 
 	return (
-		<form onSubmit={handleFormSubmit} className="relative" method="POST">
-			<div className="relative desktop:w-[45.5rem]">
+		<form
+			onSubmit={handleFormSubmit}
+			className="relative flex-grow-0 flex-shrink-0 w-full flex justify-center desktop:flex-grow-[unset] desktop:flex-shrink-[unset] desktop:w-[unset] desktop:block"
+			method="POST"
+		>
+			<div className="relative w-full max-w-[42rem] desktop:w-[45.5rem] desktop:max-w-[unset]">
 				<Input
 					label="Customer email address"
 					placeholder="Email Address"

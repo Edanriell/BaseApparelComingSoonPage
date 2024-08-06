@@ -29,20 +29,20 @@ export const HomePage: FC = () => {
 						srcSet="/images/raster/woman-image-mobile@1x.jpg 1x, /images/raster/woman-image-mobile@2x.jpg 2x"
 					/>
 					<img
-						className="w-full h-[25rem] object-cover desktop:max-w-[42.36vw] desktop:h-[100vh]"
+						className="w-full min-h-[25rem] h-[30.55vw] object-cover desktop:max-w-[42.36vw] desktop:h-[100vh] desktop:min-h-[unset]"
 						src="/images/raster/woman-image-desktop@1x.jpg"
 						srcSet="/images/raster/woman-image-desktop@2x.jpg"
 						alt="Woman"
 					/>
 				</picture>
-				<div className="mt-[6.4rem] mb-[9.2rem] px-[3.2rem] desktop:mt-[7.1rem] desktop:mb-[unset] desktop:px-[unset] relative desktop:col-start-1 desktop:col-end-2 desktop:row-start-1 desktop:row-end-2 desktop:pr-[22rem]">
-					<h1 className="font-josefinSans font-light text-[4rem] leading-[105%] tracking-[0.27em] text-center text-oriental-pink-400 uppercase mb-[1.6rem] desktop:mb-[1.8rem] desktop:text-[6.4rem] desktop:leading-[100%] desktop:text-left">
+				<div className="flex flex-col items-center mt-[6.4rem] mb-[9.2rem] px-[3.2rem] desktop:mt-[7.1rem] desktop:mb-[unset] desktop:px-[unset] relative desktop:col-start-1 desktop:col-end-2 desktop:row-start-1 desktop:row-end-2 desktop:pr-[22rem] desktop:block">
+					<h1 className="font-josefinSans max-w-[74rem] font-light text-[4rem] leading-[105%] tracking-[0.27em] text-center text-oriental-pink-400 uppercase mb-[1.6rem] desktop:mb-[1.8rem] desktop:text-[6.4rem] desktop:leading-[100%] desktop:text-left desktop:max-w-[unset]">
 						We&apos;re{" "}
 						<strong className="font-josefinSans font-semibold text-[4rem] leading-[105%] tracking-[0.27em] text-center text-masala-900 uppercase desktop:text-[6.4rem] desktop:leading-[111%] desktop:text-left">
 							coming soon
 						</strong>
 					</h1>
-					<p className="font-josefinSans font-normal text-[1.4rem] leading-[157%] text-center text-oriental-pink-400 mb-[3.2rem] desktop:text-[1.6rem] desktop:leading-[175%] desktop:text-left desktop:mb-[4rem] desktop:max-w-[45rem] desktopXl:max-w-[70rem]">
+					<p className="font-josefinSans max-w-[62rem] font-normal text-[1.4rem] leading-[157%] text-center text-oriental-pink-400 mb-[3.2rem] desktop:text-[1.6rem] desktop:leading-[175%] desktop:text-left desktop:mb-[4rem] desktop:max-w-[45rem] desktopXl:max-w-[70rem]">
 						Hello fellow shoppers! We&apos;re currently building our new fashion store. Add your
 						email below to stay up-to-date with announcements and our launch deals.
 					</p>
