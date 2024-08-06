@@ -102,10 +102,14 @@ export default {
 				buttonShadow: "0 1.5rem 2rem 0 rgba(198, 110, 110, 0.25)"
 			},
 			backgroundImage: {
-				buttonGradient: "linear-gradient(135deg, #f8bfbf 0%, #ee8b8b 100%)"
+				buttonGradient: "linear-gradient(135deg, #f8bfbf 0%, #ee8b8b 100%)",
+				buttonGradientLight: "linear-gradient(135deg, #f8bfbf 100%, #ee8b8b 0%)"
 			},
 			gridTemplateColumns: {
 				customTwoCols: "1fr 42.36vw"
+			},
+			transitionTimingFunction: {
+				"custom-timing-function": "cubic-bezier(0.165, 0.84, 0.44, 1)"
 			}
 		}
 	},
