@@ -15,26 +15,63 @@ export const EmailForm: FC = () => {
 		"unknown"
 	);
 	const [errorMessage, setErrorMessage] = useState<string | null>(null);
+	const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
 	const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
+		setSuccessMessage(null);
+		setErrorMessage(null);
+
 		if (userEmailValidness === "invalid") return;
 
+		const formSubmissionResult = JSON.parse(localStorage.getItem("formSubmissionResult")!);
+		if (formSubmissionResult) {
+			const parsedFormSubmissionResult = JSON.parse(formSubmissionResult);
+			if (parsedFormSubmissionResult.message === "submitted") {
+				setFormSubmission(parsedFormSubmissionResult.message);
+				setSuccessMessage(
+					`You have already submitted an email: ${parsedFormSubmissionResult.email}`
+				);
+				return;
+			}
+		}
+
 		try {
-			const response = await sendUserEmail(userEmail as string);
-			console.log(response);
+			setFormSubmission("submitting");
+
+			const response = await sendUserEmail(userEmail!);
+			setSuccessMessage(response);
+			setFormSubmission("submitted");
+
+			localStorage.setItem(
+				"formSubmissionResult",
+				JSON.stringify({ message: "submitted", email: userEmail })
+			);
 		} catch (error) {
-			console.error(error);
-		} finally {
-			console.log("finally");
+			if (error instanceof Error) {
+				console.error("Error message:", error.message);
+
+				const splitMessage = error.message.split('Message: "');
+				const extractedMessage =
+					splitMessage.length > 1
+						? splitMessage[1].replace(/"$/, "")
+						: "An unexpected error occurred.";
+
+				setErrorMessage(extractedMessage);
+			} else {
+				console.error("Unexpected error:", error);
+				setErrorMessage("An unexpected error occurred.");
+			}
+
+			setFormSubmission("unSubmitted");
 		}
 	};
 
 	const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setUserEmail(event.target.value);
 
-		if (!validateEmail((userEmail as string).trim().toLowerCase())) {
+		if (!validateEmail((userEmail as string)?.trim()?.toLowerCase())) {
 			setUserEmailValidness("invalid");
 			setErrorMessage("Please provide a valid email");
 		} else {
@@ -54,7 +91,11 @@ export const EmailForm: FC = () => {
 					onChange={handleEmailChange}
 				/>
 				<Button>
-					<img className="w-[1.2rem] h-[2rem]" src="/images/vector/icons/arrow-right.svg" alt="" />
+					<img
+						className="w-[1.2rem] h-[2rem] pointer-events-none select-none"
+						src="/images/vector/icons/arrow-right.svg"
+						alt=""
+					/>
 					<span className="sr-only">Send data</span>
 				</Button>
 				{userEmailValidness === "invalid" && (
@@ -70,6 +111,11 @@ export const EmailForm: FC = () => {
 				{errorMessage && (
 					<p className="font-josefinSans font-normal text-[1.3rem] text-carnation-400 absolute bottom-[-2.4rem] left-[2.4rem] leading-[100%] desktop:left-[3.2rem] desktop:bottom-[-2.4rem]">
 						{errorMessage}
+					</p>
+				)}
+				{successMessage && (
+					<p className="font-josefinSans font-normal text-[1.3rem] text-jade-600 absolute bottom-[-2.4rem] left-[2.4rem] leading-[100%] desktop:left-[3.2rem] desktop:bottom-[-2.4rem]">
+						{successMessage}
 					</p>
 				)}
 			</div>
