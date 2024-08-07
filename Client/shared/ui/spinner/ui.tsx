@@ -8,12 +8,6 @@ type SpinnerProps = {
 
 export const Spinner: FC<SpinnerProps> = ({ width = 50, height = 50, ...rest }) => {
 	return (
-		<img
-			src="public/images/vector/spinner.svg"
-			width={width}
-			height={height}
-			alt="Loading"
-			{...rest}
-		/>
+		<img src="/images/vector/spinner.svg" width={width} height={height} alt="Loading" {...rest} />
 	);
 };
