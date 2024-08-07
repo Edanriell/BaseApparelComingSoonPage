@@ -11,7 +11,7 @@ builder.Services.AddCors(options =>
 	options.AddPolicy("AllowLocalhost",
 		policy =>
 		{
-			policy.WithOrigins("https://localhost:7109", "http://localhost:7109").AllowAnyMethod().AllowAnyHeader();
+			policy.WithOrigins("http://localhost:5173", "https://localhost:5173").AllowAnyMethod().AllowAnyHeader();
 		});
 });
 
@@ -27,7 +27,7 @@ if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();
 	app.UseSwaggerUI();
-} 
+}
 
 app.UseHttpsRedirection();
 

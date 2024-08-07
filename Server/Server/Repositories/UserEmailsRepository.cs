@@ -25,7 +25,7 @@ public class UserEmailsRepository(ApplicationDbContext context) : IUserEmailsRep
 				RecordCount = recordCount
 			});
 	}
- 
+
 	public async Task<IResult> CreateNewUserEmail(CreateNewUserEmailRequestDto request)
 	{
 		var validationResults = new List<ValidationResult>();
@@ -59,6 +59,6 @@ public class UserEmailsRepository(ApplicationDbContext context) : IUserEmailsRep
 
 		await context.SaveChangesAsync();
 
-		return TypedResults.Ok($"Email: {request.Email} has been created successfully.");
+		return TypedResults.Ok($"Email: {request.Email} has been submitted successfully.");
 	}
 }
