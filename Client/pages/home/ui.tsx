@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { EmailForm } from "@features/email-form";
+import { EmailForm } from "features/email-form";
 import { MainLayout } from "@widgets/layouts/main";
 
 export const HomePage: FC = () => {

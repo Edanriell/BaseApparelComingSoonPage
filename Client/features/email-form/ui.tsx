@@ -116,12 +116,12 @@ export const EmailForm: FC = () => {
 					</div>
 				)}
 				{errorMessage && (
-					<p className="font-josefinSans font-normal text-[1.3rem] text-carnation-400 absolute bottom-[-2.4rem] left-[2.4rem] leading-[100%] desktop:left-[3.2rem] desktop:bottom-[-2.4rem]">
+					<p className="font-josefinSans font-normal text-[1.3rem] text-carnation-400 absolute bottom-[-3.4rem] left-[2.4rem] leading-[100%] desktop:left-[3.2rem] desktop:bottom-[-2.4rem]">
 						{errorMessage}
 					</p>
 				)}
 				{successMessage && (
-					<p className="font-josefinSans font-normal text-[1.3rem] text-jade-600 absolute bottom-[-2.4rem] left-[2.4rem] leading-[100%] desktop:left-[3.2rem] desktop:bottom-[-2.4rem]">
+					<p className="font-josefinSans font-normal text-[1.3rem] text-jade-600 absolute bottom-[-3.4rem] left-[2.4rem] leading-[100%] desktop:left-[3.2rem] desktop:bottom-[-2.4rem]">
 						{successMessage}
 					</p>
 				)}
