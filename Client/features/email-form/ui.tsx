@@ -82,6 +82,15 @@ export const EmailForm: FC = () => {
 		}
 	};
 
+	const isButtonDisabled = (
+		formSubmission: "idle" | "unSubmitted" | "submitted" | "submitting",
+		userEmailValidness: "valid" | "invalid" | "unknown"
+	) =>
+		(formSubmission === "idle" && userEmailValidness === "invalid") ||
+		(formSubmission === "idle" && userEmailValidness === "unknown") ||
+		formSubmission === "submitting" ||
+		formSubmission === "submitted";
+
 	return (
 		<form
 			onSubmit={handleFormSubmit}
@@ -97,7 +106,7 @@ export const EmailForm: FC = () => {
 					isInputInvalid={userEmailValidness === "invalid"}
 					onChange={handleEmailChange}
 				/>
-				<Button>
+				<Button disabled={isButtonDisabled(formSubmission, userEmailValidness)}>
 					<img
 						className="w-[1.2rem] h-[2rem] pointer-events-none select-none"
 						src="/images/vector/icons/arrow-right.svg"
