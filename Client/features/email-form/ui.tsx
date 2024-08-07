@@ -2,9 +2,10 @@ import { ChangeEvent, FC, FormEvent, useState } from "react";
 
 import { Input } from "@shared/ui/input";
 import { Button } from "@shared/ui/button";
-import { validateEmail } from "@features/email-form/model";
+import { Spinner } from "@shared/ui/spinner";
 
 import { sendUserEmail } from "./api";
+import { validateEmail } from "./model";
 
 export const EmailForm: FC = () => {
 	const [formSubmission, setFormSubmission] = useState<
@@ -82,7 +83,7 @@ export const EmailForm: FC = () => {
 		}
 	};
 
-	const isButtonDisabled = (
+	const isSubmitButtonDisabled = (
 		formSubmission: "idle" | "unSubmitted" | "submitted" | "submitting",
 		userEmailValidness: "valid" | "invalid" | "unknown"
 	) =>
@@ -106,7 +107,7 @@ export const EmailForm: FC = () => {
 					isInputInvalid={userEmailValidness === "invalid"}
 					onChange={handleEmailChange}
 				/>
-				<Button disabled={isButtonDisabled(formSubmission, userEmailValidness)}>
+				<Button disabled={isSubmitButtonDisabled(formSubmission, userEmailValidness)}>
 					<img
 						className="w-[1.2rem] h-[2rem] pointer-events-none select-none"
 						src="/images/vector/icons/arrow-right.svg"
@@ -114,7 +115,10 @@ export const EmailForm: FC = () => {
 					/>
 					<span className="sr-only">Send data</span>
 				</Button>
-				{userEmailValidness === "invalid" && (
+				{formSubmission === "submitting" && (
+					<Spinner className="w-[4rem] h-[4rem] absolute top-[50%] translate-y-[-50%] right-[7.5rem] pointer-events-none select-none desktop:w-[6rem] desktop:h-[6rem] desktop:right-[11rem]" />
+				)}
+				{userEmailValidness === "invalid" && formSubmission !== "submitting" && (
 					<div className="w-[2.4rem] h-[2.4rem] rounded-full bg-carnation-400 flex items-center justify-center absolute top-[50%] translate-y-[-50%] right-[7.5rem] z-20 desktop:right-[11.9rem]">
 						<img
 							className="w-[0.3rem] h-[1.3rem]"
