@@ -1,0 +1,54 @@
+@property --gradient-angle{
+	syntax: "<angle>";
+	inherits: false;
+	initial-value: 135deg;
+}
+@property --gradient-position-1{
+	syntax: "<percentage>";
+	inherits: false;
+	initial-value: 0%;
+}
+@property --gradient-position-2{
+	syntax: "<percentage>";
+	inherits: false;
+	initial-value: 100%;
+}
+@property --gradient-color-1{
+	syntax: "<color>";
+	inherits: false;
+	initial-value: #f8bfbf;
+}
+@property --gradient-color-2{
+	syntax: "<color>";
+	inherits: false;
+	initial-value: #ee8b8b;
+}
+
+.button-animations {
+	--gradient-color-1: #f8bfbf;
+	--gradient-color-2: #ee8b8b;
+	--gradient-position-1: 0%;
+	--gradient-position-2: 100%;
+	--gradient-angle: 135deg;
+
+	background: linear-gradient(
+			var(--gradient-angle),
+			var(--gradient-color-1) var(--gradient-position-1),
+			var(--gradient-color-2) var(--gradient-position-2)
+	);
+	transition:
+			transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+			--gradient-color-1 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+			--gradient-color-2 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+			--gradient-position-1 0.5s  cubic-bezier(0.165, 0.84, 0.44, 1),
+			--gradient-position-2 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+			--gradient-angle 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+	&:hover {
+		--gradient-color-1: #f8bfbf;
+		--gradient-color-2: #ee8b8b;
+		--gradient-position-1: 100%;
+		--gradient-position-2: 100%;
+		--gradient-angle: 135deg;
+	}
+}
